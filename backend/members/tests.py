@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date
 from django.contrib.auth.models import User
 from django.test import TestCase
 from rest_framework.test import APIClient
@@ -47,3 +47,15 @@ class SafetyEndpointTests(TestCase):
     def test_user_cannot_block_self(self):
         response = self.client.post(f"/api/block/{self.user.pk}/")
         self.assertEqual(response.status_code, 400)
+
+    def test_account_deletion_requires_password(self):
+        response = self.client.delete("/api/account/delete/", {"password": "wrong"}, format="json")
+        self.assertEqual(response.status_code, 400)
+        self.assertTrue(User.objects.filter(pk=self.user.pk).exists())
+
+    def test_account_deletion_removes_user_and_profile(self):
+        Profile.objects.create(user=self.user, display_name="One", birth_date=date(1995, 1, 1))
+        response = self.client.delete("/api/account/delete/", {"password": "test-pass-123456"}, format="json")
+        self.assertEqual(response.status_code, 204)
+        self.assertFalse(User.objects.filter(pk=self.user.pk).exists())
+        self.assertFalse(Profile.objects.filter(user_id=self.user.pk).exists())

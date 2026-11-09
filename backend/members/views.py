@@ -32,6 +32,14 @@ class MyProfileView(generics.RetrieveUpdateAPIView):
     def get_object(self):
         return Profile.objects.get(user=self.request.user)
 
+class DeleteAccountView(APIView):
+    def delete(self, request):
+        password = request.data.get("password", "")
+        if not isinstance(password, str) or not request.user.check_password(password):
+            return Response({"detail": "Correct password required to delete the account."}, status=status.HTTP_400_BAD_REQUEST)
+        request.user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 class DiscoverView(generics.ListAPIView):
     serializer_class = PublicProfileSerializer
 
