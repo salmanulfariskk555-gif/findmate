@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());document.querySelectorAll('form[data-demo]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=f.querySelector('[data-message]');if(m)m.textContent='Thanks for your interest. This is a preview website, so no information has been submitted or stored.';}));
