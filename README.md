@@ -1,26 +1,50 @@
 # FindMate
 
-A privacy-first matchmaking platform for adults seeking serious relationships and marriage.
+**A thoughtful matchmaking platform for adults seeking genuine relationships and marriage.**
+
+<p align="center">
+  <a href="https://salmanulfariskk555-gif.github.io/findmate/"><strong>🌐 OPEN THE FINDMATE WEBSITE PREVIEW</strong></a>
+</p>
+
+> **Important:** If you are viewing this page on GitHub, you are looking at the project's README—not the website itself. Use the website link above to view the designed FindMate homepage.
+
+---
+
+## About FindMate
+
+FindMate is being developed as a privacy-conscious matchmaking experience for adults aged 18 and above who are looking for meaningful relationships.
 
 ## Project packages
-- `web/` — responsive React + Vite landing-page foundation
-- `mobile/` — Expo React Native Android starter
-- `backend/` — Django REST API foundation
 
-## Implemented foundation
-- Premium responsive landing page and mobile starter screen
-- Django project configuration and REST API routes
-- Adult (18+) self-reported birth-date validation at registration
-- Private-by-default profiles and admin approval gate for discovery
-- Profile editing, discover list, likes, mutual-match listing
+| Folder | Purpose |
+|---|---|
+| `web/` | Responsive React + Vite website |
+| `mobile/` | Expo React Native Android starter |
+| `backend/` | Django REST API foundation |
+
+## Current progress
+
+- Responsive public landing-page design
+- Django project and initial REST API foundation
+- Self-reported date-of-birth check for adults aged 18+
+- Private-by-default profile foundation and admin approval gate
+- Profile editing, discovery, likes and mutual-match endpoints
 - Block and report endpoints
-- Initial registration and safety endpoint tests
+- Initial backend tests and GitHub Actions checks
+- GitHub Pages deployment workflow
 
-## Not yet implemented / not production-ready
-Email/phone verification and OTP, photo upload and moderation, private real-time messaging, advanced compatibility filters, subscription billing, payment webhooks, account deletion/export, full admin moderation workflow, Android release build, hosting and production monitoring.
+## Still in development
 
-## Local development
-See `web/README.md`, `mobile/README.md`, and `backend/SETUP.md`.
+Email and phone OTP verification, photo upload and moderation, private real-time messaging, advanced matching filters, subscription payments, full admin moderation, Android release build, production hosting and security review are not complete.
 
-## Safety
-FindMate is intended for adults 18+ only. Birth date is currently self-reported, not identity-verified. Do not onboard real users until verification, privacy controls, moderation, abuse response, account deletion, security testing and applicable legal review are complete. Never commit secrets, access tokens or real user data.
+## Run locally
+
+- Website: see [web/README.md](web/README.md)
+- Android starter: see [mobile/README.md](mobile/README.md)
+- Backend: see [backend/SETUP.md](backend/SETUP.md)
+
+## Safety and launch status
+
+FindMate is intended for adults aged 18+ only. Date of birth is currently self-reported and is not identity verification. **The platform is a development preview; registration is not open and it is not ready for real-user onboarding.** Complete identity/age verification, privacy controls, moderation, abuse response, account deletion, security testing and applicable legal review before launch.
+
+Never commit passwords, API keys, access tokens or real member data.
